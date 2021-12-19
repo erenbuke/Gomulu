@@ -39,6 +39,7 @@ namespace EmbeddedProject
             this.label2 = new System.Windows.Forms.Label();
             this.startbefore = new System.Windows.Forms.TextBox();
             this.sendbutton = new System.Windows.Forms.Button();
+            this.close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hour
@@ -141,7 +142,6 @@ namespace EmbeddedProject
             // 
             // sendbutton
             // 
-            this.sendbutton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.sendbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.sendbutton.Location = new System.Drawing.Point(0, 411);
             this.sendbutton.Name = "sendbutton";
@@ -151,11 +151,23 @@ namespace EmbeddedProject
             this.sendbutton.UseVisualStyleBackColor = true;
             this.sendbutton.Click += new System.EventHandler(this.sendbutton_Click);
             // 
+            // close
+            // 
+            this.close.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.close.Location = new System.Drawing.Point(0, 468);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(342, 59);
+            this.close.TabIndex = 10;
+            this.close.Text = "Close Alarm";
+            this.close.UseVisualStyleBackColor = true;
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 470);
+            this.ClientSize = new System.Drawing.Size(342, 528);
+            this.Controls.Add(this.close);
             this.Controls.Add(this.sendbutton);
             this.Controls.Add(this.startbefore);
             this.Controls.Add(this.label2);
@@ -190,6 +202,7 @@ namespace EmbeddedProject
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox startbefore;
         private System.Windows.Forms.Button sendbutton;
+        private System.Windows.Forms.Button close;
     }
 }
 

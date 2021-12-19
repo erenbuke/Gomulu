@@ -230,6 +230,13 @@ namespace EmbeddedProject
             int start = Int32.Parse(startbefore.Text);
 
             await ApiWrite.SaveFields(alarmhour, alarmmin, start);
+            MessageBox.Show("Alarm is set.");
+        }
+
+        private async void close_Click(object sender, EventArgs e)
+        {
+            await ApiWrite.SaveFields(99, 0, 0);
+            MessageBox.Show("Alarm is cancelled.");
         }
     }
 }
