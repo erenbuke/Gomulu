@@ -17,7 +17,7 @@ def calculate_light_state(alarm_info, method_state_counter=None):
         method_state_counter = alarm_state_counter
 
     now = datetime.datetime.now()
-    now = now.replace(month=1, microsecond=0, day=1, second=0)
+    now = now.replace(month=1, microsecond=0, day=1)
 
     alarm_time = datetime.datetime.now()
     alarm_time = alarm_time.replace(month=1, hour=alarm_info[0], minute=alarm_info[1], second=0, microsecond=0, day=1)
@@ -34,7 +34,7 @@ def calculate_light_state(alarm_info, method_state_counter=None):
         set_light((alarm_info[2] - time_difference_minutes) * 100 / alarm_info[2])
 
     if method_state_counter == alarm_state_counter:
-        threading.Timer(10, calculate_light_state, [alarm_info, method_state_counter]).start()
+        threading.Timer(1, calculate_light_state, [alarm_info, method_state_counter]).start()
 
 
 def fetch_alarm_info(alarm_state, previous_state=None):
@@ -58,7 +58,13 @@ def fetch_alarm_info(alarm_state, previous_state=None):
     threading.Timer(10., fetch_alarm_info, [alarm_state, previous_state]).start()
 
 
+def write_alarm_info(alarm_hour, alarm_minute, start_before):
+    urllib.request.urlopen(f"https://api.thingspeak.com/update?api_key=HC4WDU6WBMSPIWKS"
+                           f"&field1={alarm_hour}&field2={alarm_minute}&field3={start_before}")
+
+
 if __name__ == '__main__':
+    # write_alarm_info(19, 23, 40)
     alarm_info = []
     fetch_alarm_info(alarm_info)
     calculate_light_state(alarm_info)
