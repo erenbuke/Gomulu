@@ -51,7 +51,7 @@ namespace EmbeddedProject
             this.hour.Name = "hour";
             this.hour.Size = new System.Drawing.Size(78, 55);
             this.hour.TabIndex = 0;
-            this.hour.Text = "00";
+            this.hour.Text = "12";
             // 
             // minute
             // 
@@ -138,6 +138,7 @@ namespace EmbeddedProject
             this.startbefore.Name = "startbefore";
             this.startbefore.Size = new System.Drawing.Size(100, 53);
             this.startbefore.TabIndex = 8;
+            this.startbefore.Text = "10";
             this.startbefore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // sendbutton

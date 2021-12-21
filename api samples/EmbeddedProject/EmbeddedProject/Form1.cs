@@ -17,16 +17,8 @@ namespace EmbeddedProject
         {
             InitializeComponent();
 
-            read();
-        }
-
-        private async void read()
-        {
-            List<int> fields = await ApiRead.GetFields();
-
-            hour.Text = fields[0].ToString();
-            minute.Text = fields[1].ToString();
-            startbefore.Text = fields[2].ToString();
+            hour.Text = DateTime.Now.Hour.ToString();
+            minute.Text = DateTime.Now.Minute.ToString();
         }
 
         static bool click = false;
